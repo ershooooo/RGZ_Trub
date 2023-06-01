@@ -7,8 +7,116 @@
     <title>Трубицына Алиса Владимировна. РГЗ по web-программированию</title>
     <link rel="stylesheet" href="trub.css">
     <style>
-
+        .text1{
+            text-align: center;
+            margin-top: 40px;
+        }
+        .text2{
+            text-align: center;
+            font-size: 18px;
+        }
+        .pink{
+            margin-top: 30px;
+            width: 104%;
+            height: 350px;
+            margin-left: -60px;
+            background-color: #f9e9e5;
+            position: relative;
+            z-index: -1;
+        }
+        .text3{
+            margin-top: -270px;
+            color: #F73E24; 
+            font-weight: bold;
+            font-size: 40px;
+            margin-left: 55px;
+        }
+        .text4{
+            margin-top: -20px;
+            font-size: 22px;
+        }
+        .b2{
+            margin-left: 400px;
+            margin-top: -110px;
+        }
+        .b22{
+            margin-left: 410px;
+            margin-top: -22px;
+        }
+        .b3{
+            margin-left: 860px;
+            margin-top: -110px;
+        }
+        .b33{
+            margin-left: 870px;
+            margin-top: -22px;
+        }
+        .b4{margin-left: 1130px;margin-top: -110px;}
+        .b44{margin-left: 1140px;margin-top: -22px;}
+        .button3{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.6rem;
+            background-color:#f9e9e5;
+            width: 500px;
+            height: 100px;
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+            margin-top: 200px;
+            margin-left: 520px;
+        }
+        .cen3{
+            margin-left: 100px;
+            font-size: 18px;
+        }
+        table{
+            border: 10px solid;
+            border-color: #F73E24; 
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            color: #333;
+            margin-left: 70px;
+            width: 90%;
+            height:auto;
+            background-color: #f9e9e5;
+        }
+        th, td {
+            border: 1px solid #F73E24; 
+            padding: 4px;
+            text-align: center;
+        }
     </style>
+    <script>
+        function Kurs(){
+            let date=['28.04.2023','27.04.2023','26.04.2023','25.04.2023','24.04.2023','21.04.2023','20.04.2023','19.04.2023','18.04.2023',
+            '17.04.2023','14.04.2023','13.04.2023','12.04.2023','11.04.2023','10.04.2023','07.04.2023','06.04.2023','05.04.2023','04.04.2023','03.04.2023'];
+            let change=[0.75,0.77,0.78,0.78,0.8,0.76,0.77,0.77,0.79,0.81,0.87,0.85,0.85,0.86,0.83,0.81,0.8,0.77,0.78,0.73];
+
+            let table=document.getElementById('kurs-exchange'); 
+            for (i = 0; i <change.length; i++){
+            let tr = document.createElement("tr");
+            let td1 = document.createElement("td");
+            td1.innerHTML = date[i];
+            let td2 = document.createElement("td");
+            td2.innerHTML = change[i];
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            table.appendChild(tr);
+            }
+            let sum=0;
+            for(let i=0; i<change.length; i++){
+                sum = sum+change[i];
+            }
+            let average = sum / change.length;
+            let min = Math.min.apply(Math,change)
+            let max = Math.max.apply(Math,change)
+            document.getElementById('details').innerHTML='Среднее значение: ' + average +"<br />"+ 'Минимальное значение: ' + min +"<br />" +'Максимальное значение: ' + max;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -27,7 +135,34 @@
     </header>
 
     <main>
-
+        <h1>Основные финансовые показатели</h1>
+        <h2 class="text1">Раскрытие информации</h2>
+        <p class="text2">«ПАО «Таттелеком» раскрывает всю необходимую информацию на странице в сети Интернет, предоставляемой информационным агентством,
+             аккредитованным Банком России на раскрытие информации, – ООО «Интерфакс-ЦРКИ». </p>
+        <h2 class="text1">Таттелеком в цифрах</h2>
+        <div class="pink"></div>
+        <div>
+            <p class="text3">2 млн</p>
+            <p class="text4">абонентов Таттелеком</p>
+        </div>
+        <div>
+            <p class="text3 b2">68 000 кв.км</p>
+            <p class="text4 b22">охват деятельностью</p>
+        </div>
+        <div>
+            <p class="text3 b3">125 лет</p>
+            <p class="text4 b33">опыта работы</p>
+        </div>
+        <div>
+            <p class="text3 b4">более 650 000</p>
+            <p class="text4 b44">абонентов телефонии</p>
+        </div>
+        <button class="button3" onclick="Kurs()">Стоимость акций за апрель 2023</button>
+        <table class="tab" id="kurs-exchange"></table>
+        <div>
+          <h2 class="text1">Показатели акций</h2>
+          <div class="cen3" id="details"></div>
+        </div>
     </main>
 
     <footer>
