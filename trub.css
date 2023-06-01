@@ -101,3 +101,16 @@ footer{
     font-size: 35px;
     font-weight: bold;
 }
+main{
+    font-family: "Open Sans", sans-serif ;
+    font-size: 20px;
+    margin-left: 50px;
+    font-weight: lighter;
+    text-align: justify;
+    color: #333;
+}
+.zag1{
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+}
